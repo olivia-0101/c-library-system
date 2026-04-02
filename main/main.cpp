@@ -85,8 +85,9 @@ class LibraryMember : public User { // adding inheritance (LibraryMember is a ki
 	vector<Book*>borrowedBooks; // a list of pointers to books a member has borrowed
 
 // constructor
-	LibraryMember(int id, string n, string e, string p) {
-		: User(id, n, e, p) {
+public: // allows creation of a library member in main()
+	LibraryMember(int id, string n, string e, string p)
+		: User(id, n, e, p) { // takes the values from User (inheritance)
 		}
 
 };
