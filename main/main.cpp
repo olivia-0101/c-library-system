@@ -23,6 +23,21 @@ class Book {
 			author = a;
 			ISBN = i;
 			isAvailable = true; // books are available by default unless this is changed
+		}
+
+
+// methods
+
+// borrowing books
+	bool beBorrowed() { // is a boolean because being borrowed can either succeed or fail depending on the user's actions and system availability
+		if (isAvailable) { // if the book is available then...
+			isAvailable = false; // it becomes 'not available' on the system as it's borrowed successfully
+			return true; // means the borrowing has succeeded
+			cout << "Book borrowed successfully.";
+		} else {
+			return false; // means the borrowing has failed
+			cout << "Requested book is unavailable.";
+		}
 	}
 
 
