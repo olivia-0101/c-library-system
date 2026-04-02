@@ -131,6 +131,20 @@ public: // allows creation of a library member in main()
 	}
 
 
+// (LibraryMember) showing their borrowed books
+
+	void showBorrowedBooks() { // showing borrowed books method
+		if (borrowedBooks.empty()) { // if the user has no books borrowed...
+			cout << name << " has 0 books." << endl; // display message
+			return; // end
+		}
+
+		cout << name << " 's borrowed books:" << endl; // otherwise show the display message
+		for (Book* b : borrowedBooks) { // for loop going through each borrowed book
+			cout << "- " << b->getTitle() << " by " << b->getAuthor() << endl; // name of each book and author with pointers
+		}
+	}
+
 };
 
 
