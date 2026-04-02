@@ -46,7 +46,7 @@ class Book {
 	bool beReturned() { // similar rules apply to borrowing books
 		if (!isAvailable) { // if the book isn't available in the system (AKA borrowed) then...
 			isAvailable = true; // the book becomes available to the system again because it will be returned
-			cout << "This book " << t << " has been returned to the library." // displays message
+			cout << "This book " << title << " has been returned to the library."; // displays message
 			return true; // means the returning has succeeded
 		}
 		else {
@@ -62,7 +62,7 @@ class Book {
 class User {
 // creating the User attributes according to my pseudocode
 	protected: // User attributes are set to protected, preventing users from outside the main superclass and subclasses from changing them
-	int UserID; // UserID
+	int userID; // UserID
 	string name; // User name
 	string email; // User email
 	string password; // User password
