@@ -62,10 +62,19 @@ class Book {
 class User {
 // creating the User attributes according to my pseudocode
 	protected: // User attributes are set to protected, preventing users from outside the main superclass and subclasses from changing them
-	int userID; // UserID
-	string name; // User name
-	string email; // User email
-	string password; // User password
+		int userID; // UserID
+		string name; // User name
+		string email; // User email
+		string password; // User password
+
+// creating the constructor so that we can have lots of different Users
+public: // others can access this information
+	User(int id, string n, string e, string p) { // placenames for the User values to be passed through
+		userID = id; // UserID
+		name = n;
+		email = e;
+		password = p;
+
 };
 
 
@@ -75,12 +84,9 @@ class LibraryMember : public User { // adding inheritance (LibraryMember is a ki
 	private: // LibraryMember attributes are private
 	vector<Book*>borrowedBooks; // a list of pointers to books a member has borrowed
 
-
-// creating the constructor so that we can have lots of different library members
-	public: // others can access this information
-		LibraryMember(int id, string n) { // placenames for the member values to be passed through
-			userID = id; // assigning the values
-			name = n;
+// constructor
+	LibraryMember(int id, string n, string e, string p) {
+		: User(id, n, e, p) {
 		}
 
 };
