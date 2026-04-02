@@ -46,7 +46,7 @@ class Book {
 	bool beReturned() { // similar rules apply to borrowing books
 		if (!isAvailable) { // if the book isn't available in the system (AKA borrowed) then...
 			isAvailable = true; // the book becomes available to the system again because it will be returned
-			cout << "This book " << title << " has been returned to the library."; // displays message
+			cout << "This book \"" << title << "\" has been returned to the library."; // displays message
 			return true; // means the returning has succeeded
 		}
 		else {
@@ -121,7 +121,7 @@ public: // allows creation of a library member in main()
 			book->beReturned(); // pointer to the specific book to call the Book's beReturned function
 			borrowedBooks.erase(borrowedBooks.begin() + i); // erase the book (return it)
 
-			cout << "This book " << title << " has been returned to the library." << endl; // display message
+			cout << "This book \"" << title << "\" has been returned to the library." << endl; // display message
 			return true; // the returning worked
 			}
 		}
@@ -157,5 +157,9 @@ class LibrarySystem {
 
 
 int main() { // start of the program
+	Book b1("Alice in Wonderland", "Lewis Carroll", 123);
+	LibraryMember User1(150, "Mary", "mary@gmail.com", "abcde");
+
+	User1.borrowBook(&b1);
 	return 0;
 }
