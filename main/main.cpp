@@ -74,7 +74,7 @@ public: // others can access this information
 		name = n;
 		email = e;
 		password = p;
-
+	}
 };
 
 
@@ -89,6 +89,27 @@ public: // allows creation of a library member in main()
 	LibraryMember(int id, string n, string e, string p)
 		: User(id, n, e, p) { // takes the values from User (inheritance)
 		}
+
+
+// methods
+
+// (LibraryMember) borrowing a book
+	bool borrowBook(Book* book) { // boolean to borrow a specific book with pointers
+
+		if (borrowedBooks.size() >= 5) { // if the amount of books they've borrowed is >= 5 (borrowing limit)
+			cout << "Cannot borrow more than five books at a time." << endl; // display message
+			return false; // means borrowing failed
+		}
+
+		if (book->beBorrowed()) { // pointer to if the specific book is borrowed
+			borrowedBooks.push_back(book); // adds book to the end of the member's list of books
+			cout << "Book borrowed successfully." << endl; // display message
+			return true; // means borrowing successful
+		}
+
+		cout << "Book is not available." << endl; // display message
+		return false; // if borrowing fails in general regardless
+}
 
 };
 
