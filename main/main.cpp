@@ -111,6 +111,26 @@ public: // allows creation of a library member in main()
 		return false; // if borrowing fails in general regardless
 	}
 
+
+// (LibraryMember) returning a book
+	bool returnBook(Book* book) { // boolean to return a specific book with pointers
+
+		for (int i = 0; i < borrowedBooks.size(); i++) { // for loop that goes through every book the member has borrowed
+
+		if (borrowedBooks[i] == book) { // if the specific book found in the list is the one we want...
+			book->beReturned(); // pointer to the specific book to call the Book's beReturned function
+			borrowedBooks.erase(borrowedBooks.begin() + i); // erase the book (return it)
+
+			cout << "This book " << title << " has been returned to the library." << endl; // display message
+			return true; // the returning worked
+			}
+		}
+
+		cout << "Book not found." << endl; // display message
+		return false; // if returning fails in general regardless
+	}
+
+
 };
 
 
