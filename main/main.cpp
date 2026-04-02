@@ -101,7 +101,7 @@ public: // allows creation of a library member in main()
 			return false; // means borrowing failed
 		}
 
-		if (book->beBorrowed()) { // pointer to if the specific book is borrowed
+		if (book->beBorrowed()) { // pointer to if the specific book is borrowed, calling method from Book class
 			borrowedBooks.push_back(book); // adds book to the end of the member's list of books
 			cout << "Book borrowed successfully." << endl; // display message
 			return true; // means borrowing successful
@@ -109,7 +109,7 @@ public: // allows creation of a library member in main()
 
 		cout << "Book is not available." << endl; // display message
 		return false; // if borrowing fails in general regardless
-}
+	}
 
 };
 
