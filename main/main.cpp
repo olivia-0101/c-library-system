@@ -14,6 +14,19 @@ class Book {
 	int ISBN; // Book ISBN
 	int dueDate; // Book due date
 	bool isAvailable; // Book availability boolean
+
+
+// creating the constructor - template for the book so we can have many different Book objects
+	public: // other classes can access this information
+		Book(string t, string a, int i) { // placenames for the book values to be passed through
+			title = t; // assigning the values
+			author = a;
+			ISBN = i;
+			isAvailable = true; // books are available by default unless this is changed
+	}
+
+
+
 };
 
 
