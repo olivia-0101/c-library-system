@@ -30,7 +30,8 @@ class User {
 
 // creating the LibraryMember class
 class LibraryMember {
-
+	private: // LibraryMember attributes are private
+	vector<Book*>borrowedBooks; // a list of pointers to books a member has borrowed
 };
 
 
