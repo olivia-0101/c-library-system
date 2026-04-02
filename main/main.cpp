@@ -1,5 +1,5 @@
 #include <iostream> // allows input and output
-#include <vectors> // for use of book vectors that will later have pointers inside of them!
+#include <vector> // for use of book vectors that will later have pointers inside of them!
 #include <string> // for all of the different string attributes
 
 using namespace std; // efficiency, removes the need to type in std:: each time
@@ -32,12 +32,12 @@ class Book {
 	bool beBorrowed() { // is a boolean because being borrowed can either succeed or fail depending on the user's actions and system availability
 		if (isAvailable) { // if the book is available then...
 			isAvailable = false; // it becomes 'not available' on the system as it's borrowed successfully
+			cout << "Book borrowed successfully."; // displays message
 			return true; // means the borrowing has succeeded
-			cout << "Book borrowed successfully.";
 		} 
 		else {
+			cout << "Requested book is unavailable."; // displays message
 			return false; // means the borrowing has failed
-			cout << "Requested book is unavailable.";
 		}
 	}
 
@@ -46,12 +46,12 @@ class Book {
 	bool beReturned() { // similar rules apply to borrowing books
 		if (!isAvailable) { // if the book isn't available in the system (AKA borrowed) then...
 			isAvailable = true; // the book becomes available to the system again because it will be returned
+			cout << "This book " << t << " has been returned to the library." // displays message
 			return true; // means the returning has succeeded
-			cout << "This book " << t << " has been returned to the library."
 		}
 		else {
+			cout << "Unable to return book."; // displays message
 			return false; // means the returning has failed
-			cout << "Unable to return book.";
 		}
 	}
 
