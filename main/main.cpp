@@ -30,6 +30,7 @@ class User {
 
 // creating the LibraryMember class
 class LibraryMember {
+// creating the LibraryMember attributes according to my pseudocode
 	private: // LibraryMember attributes are private
 	vector<Book*>borrowedBooks; // a list of pointers to books a member has borrowed
 };
@@ -49,7 +50,10 @@ class Administrator {
 
 // creating the LibrarySystem class
 class LibrarySystem {
-
+// creating the LibrarySystem attributes according to my pseudocode
+	private: // attributes can't be accessed by anyone else, prevents the system from breaking
+		vector<Book*>books; // the library system stores all of the books by pointers
+		vector<User*>users; // the library system stores all of the users by pointers
 };
 
 
