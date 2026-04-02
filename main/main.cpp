@@ -19,7 +19,12 @@ class Book {
 
 // creating the User class
 class User {
-
+// creating the User attributes according to my pseudocode
+	protected: // User attributes are set to protected, preventing users from outside the main superclass and subclasses from changing them
+	int UserID; // UserID
+	string name; // User name
+	string email; // User email
+	string password; // User password
 };
 
 
