@@ -7,7 +7,13 @@ using namespace std; // efficiency, removes the need to type in std:: each time
 
 // creating the Book class
 class Book {
-
+// creating its attributes according to my pseudocode
+	private: // the Book's attributes are set to private, preventing users from tampering with them
+	string title; // Book title
+	string author; // Book author
+	int ISBN; // Book ISBN
+	int dueDate; // Book due date
+	bool isAvailable; // Book availability boolean
 };
 
 
