@@ -34,13 +34,26 @@ class Book {
 			isAvailable = false; // it becomes 'not available' on the system as it's borrowed successfully
 			return true; // means the borrowing has succeeded
 			cout << "Book borrowed successfully.";
-		} else {
+		} 
+		else {
 			return false; // means the borrowing has failed
 			cout << "Requested book is unavailable.";
 		}
 	}
 
 
+// returning books
+	bool beReturned() { // similar rules apply to borrowing books
+		if (!isAvailable) { // if the book isn't available in the system (AKA borrowed) then...
+			isAvailable = true; // the book becomes available to the system again because it will be returned
+			return true; // means the returning has succeeded
+			cout << "This book " << t << " has been returned to the library."
+		}
+		else {
+			return false; // means the returning has failed
+			cout << "Unable to return book.";
+		}
+	}
 
 };
 
