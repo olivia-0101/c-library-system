@@ -74,6 +74,15 @@ class LibraryMember {
 // creating the LibraryMember attributes according to my pseudocode
 	private: // LibraryMember attributes are private
 	vector<Book*>borrowedBooks; // a list of pointers to books a member has borrowed
+
+
+// creating the constructor so that we can have lots of different library members
+	public: // others can access this information
+		LibraryMember(int id, string n) { // placenames for the member values to be passed through
+			userID = id; // assigning the values
+			name = n;
+		}
+
 };
 
 
