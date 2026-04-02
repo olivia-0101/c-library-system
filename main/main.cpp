@@ -55,6 +55,15 @@ class Book {
 		}
 	}
 
+// 'getting' methods so other users can retrieve information from the Book class
+	string getTitle() {
+		return title;
+	}
+
+	string getAuthor() {
+		return author;
+	}
+
 };
 
 
