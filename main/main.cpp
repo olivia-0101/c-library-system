@@ -70,7 +70,7 @@ class User {
 
 
 // creating the LibraryMember class
-class LibraryMember {
+class LibraryMember : public User { // adding inheritance (LibraryMember is a kind of User)
 // creating the LibraryMember attributes according to my pseudocode
 	private: // LibraryMember attributes are private
 	vector<Book*>borrowedBooks; // a list of pointers to books a member has borrowed
