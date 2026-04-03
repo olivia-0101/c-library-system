@@ -175,6 +175,20 @@ class LibrarySystem {
 	private: // attributes can't be accessed by anyone else, prevents the system from breaking
 		vector<Book*>books; // the library system stores all of the books by pointers
 		vector<User*>users; // the library system stores all of the users by pointers
+
+public: // as I don't have a functioning Librarian right now the LibrarySystem will add the books
+	void addBook(Book* b) { // adding books with a pointer
+		books.push_back(b); // adding a book to the end of the book vector
+	}
+
+	void showAvailableBooks() {
+		cout << "Available books:" << endl; // displaying the list of available books
+		for (Book* b : books) { // for loop going through all the books via pointers
+			if (b->isAvailable()) (
+				cout << "- " b->getTitle() << " by " << b->getAuthor() << endl; // getting the book's title and author
+				)
+		}
+	}
 };
 
 
