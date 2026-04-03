@@ -64,6 +64,10 @@ class Book {
 		return author;
 	}
 
+	bool isAvailable() {
+		return isAvailable;
+	}
+
 };
 
 
