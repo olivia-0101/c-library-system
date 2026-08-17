@@ -4,7 +4,7 @@
 
 using namespace std;
 
-enum class BookStatus
+enum class BookStatus // allows BookStatus to be set to three different states rather than a boolean true/false availability system
 {
 	Available,
 	Borrowed,
@@ -13,14 +13,14 @@ enum class BookStatus
 
 class Book
 {
-private:
+private: // private attributes of the Book class
 	string title;
 	string author;
 	int bookId;
 	BookStatus status;
 	string dueDate;
 
-public:
+public: // all of its public methods according to the pseudocode
 	Book(int id, string t, string a);
 	void borrow();
 	void returnBook();
