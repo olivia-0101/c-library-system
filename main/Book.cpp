@@ -17,7 +17,7 @@ void Book::borrow() // borrowing method
 
 void Book::returnBook() // returning method
 {
-	status = return status; // sets the book's status back to 'Available'
+	status = return status; // sets the book's status back to 'Available' without directly changing the private status variable
 }
 
 void Book::getStatus() // showing the book's status method
