@@ -54,3 +54,8 @@ string Book::getTitle() // getter that grabs the book's title (private attribute
 {
 	return title;
 }
+
+string Book::getAuthor() // getter that grabs the book's author (private attribute) and allows it to be seen
+{
+	return author;
+}
