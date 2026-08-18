@@ -1,5 +1,6 @@
 #include "LibraryMember.h" // includes LibraryMember header information
 #include <iostream> // allows for cout
+#include <algorithm>
 
 LibraryMember::LibraryMember(int id, string n, string e, string p)
 	: LibraryUser(id, n, e, p) // calling the parent class constructor to make the child object
@@ -20,3 +21,23 @@ bool LibraryMember::checkAvailability() // return true if the book is available,
 	return book->getStatus() == BookStatus::Available;
 }
 
+void LibraryMember::borrowBook()
+{
+	if (borrowedBooks.size() >= 5) // if the user has five books already...
+	{
+		cout << "You have reached your borrowing limit." << endl; // displays as written in pseudocode
+		return;
+	}
+
+	if (checkAvailability(book)) // if the book is available
+	{
+		book->borrow(); // that specific book at the pointer will be borrowed
+		borrowedBooks.push_back(book); // adds the book on the end of the vector of borrowedBooks
+		cout << "You have successfully borrowed " << book->getTitle() << "." << endl; // getTitle method allows us to display the specific title of the book the user has borrowed
+	}
+
+	else
+	{
+		cout << "This book is currently unavailable." << endl; // if the book is unavailable, display this message as per pseudocode
+	}
+} 
