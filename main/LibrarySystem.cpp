@@ -67,3 +67,34 @@ Book* LibrarySystem::findBook(string title) // finding a particular book method
 }
 
 
+bool LibrarySystem::addBook(Book* book) // adding a book to the library method
+{
+	if (findBook(book->getTitle()) != nullptr) // if the library cannot find this book already in the library, it gives us nullptr (nothing), so != nullptr means it found the same book already in the library
+	{
+		cout << "This book is already in the library." << endl; // display message according to pseudocode
+		return false; // cannot add book as it's already in the library
+	}
+
+	books.push_back(book); // else add the book to the end of the book vector list, and into the library
+
+	cout << "Book added successfully to the library." << endl; // display message according to pseudocode
+	return true; // successful adding of book
+}
+
+
+bool LibrarySystem::removeBook(Book* book) // removing a book from the library method
+{
+	if (findBook(book->getTitle()) == nullptr) // if the library cannot find this book already in the library, it gives us nullptr (nothing)
+	{
+		cout << "This book isn't in the library." << endl; // display message according to pseudocode
+		return false; // cannot remove book as it doesn't exist in the library
+	}
+
+	books.erase( // else remove the book from the end of the book vector list
+		remove(books.begin(), books.end(), book),
+		books.end()
+	);
+
+	cout << "Book removed from the library." << endl; // display message according to pseudocode
+	return true; // successful removal of book
+}
