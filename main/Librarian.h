@@ -5,12 +5,17 @@
 
 using namespace std;
 
+class LibrarySystem; // writing this so it knows about the LibrarySystem class
+
 class Librarian : public LibraryUser // Librarian inherits from the parent class LibraryUser
 {
-public: // public methods
-	Librarian(int id, string n, string e, string p);
+private:
+	LibrarySystem* librarySystem; // giving each Librarian object a pointer to the LibrarySystem
 
-	void addBook(Book* book);
-	void updateBook(Book* book);
-	void removeBook(Book* book);
+public: // public methods
+	Librarian(int id, string n, string e, string p, LibrarySystem* system); // when we create a Librarian object we also give them the LibrarySystem system
+
+	bool addBook(Book* book);
+	bool updateBook(Book* book);
+	bool removeBook(Book* book);
 };
