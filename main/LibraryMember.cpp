@@ -16,12 +16,12 @@ void LibraryMember::viewBorrowing() // library member keeps track of which books
 	}
 }
 
-bool LibraryMember::checkAvailability() // return true if the book is available, otherwise return false
+bool LibraryMember::checkAvailability(Book* book) // return true if the book is available, otherwise return false
 {
 	return book->getStatus() == BookStatus::Available;
 }
 
-void LibraryMember::borrowBook() // method for borrowing books
+void LibraryMember::borrowBook(Book* book) // method for borrowing books
 {
 	if (borrowedBooks.size() >= 5) // if the user has five books already...
 	{
