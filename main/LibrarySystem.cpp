@@ -21,7 +21,7 @@ vector<Book*> LibrarySystem::searchByTitle(string title) // search by title meth
 }
 
 
-vector<Book*> LibrarySystem::searchByAuthor(string title) // search by author method
+vector<Book*> LibrarySystem::searchByAuthor(string author) // search by author method
 {
 	vector<Book*> results; // results vector begins empty
 
