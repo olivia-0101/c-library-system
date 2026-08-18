@@ -98,3 +98,18 @@ bool LibrarySystem::removeBook(Book* book) // removing a book from the library m
 	cout << "Book removed from the library." << endl; // display message according to pseudocode
 	return true; // successful removal of book
 }
+
+
+bool LibrarySystem::updateBook(Book* book, string newTitle, string newAuthor) // updating a book method
+{
+	if (findBook(book->getTitle()) == nullptr) // if the library cannot find this book already in the library, it gives us nullptr (nothing)
+	{
+		cout << "Requested book couldn't be found." << endl; // display message according to pseudocode
+		return false; // cannot update book as it doesn't exist in the library
+	}
+
+	book->updateBookInfo(newTitle, newAuthor); // updates the title and author of the specific book
+
+	cout << "Book information has been updated successfully." << endl; // display message according to pseudocode
+	return true; // updates the book
+}
