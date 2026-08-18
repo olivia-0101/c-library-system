@@ -6,4 +6,4 @@ Librarian::Librarian(int id, string n, string e, string p)
 {
 }
 
-// cannot do methods yet because I need to do the Librarian class
+// cannot do methods yet because I need to do the Library System class
