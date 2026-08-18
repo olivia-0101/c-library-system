@@ -21,7 +21,7 @@ bool LibraryMember::checkAvailability() // return true if the book is available,
 	return book->getStatus() == BookStatus::Available;
 }
 
-void LibraryMember::borrowBook()
+void LibraryMember::borrowBook() // method for borrowing books
 {
 	if (borrowedBooks.size() >= 5) // if the user has five books already...
 	{
@@ -41,3 +41,32 @@ void LibraryMember::borrowBook()
 		cout << "This book is currently unavailable." << endl; // if the book is unavailable, display this message as per pseudocode
 	}
 } 
+
+void LibraryMember::returnBook(Book* book) // method for returning books
+{
+	book->returnBook(); // asking the book to change its status back to 'Available'
+
+	borrowedBooks.erase( // removing the book from the user's vector list
+		remove(borrowedBooks.begin(), borrowedBooks.end(), book),
+		borrowedBooks.end()
+	);
+
+	cout << "You have successfully returned " << book->getTitle() << "." << endl; // getTitle method allows us to display the specific title of the book the user has returned
+}
+
+void LibraryMember::reserveBook(Book* book) // method to reserve books
+{
+	if (book->getStatus() == BookStatus::Borrowed) // if the book is currently borrowed...
+	{
+		book->reserve();
+		cout << "You have successfully reserved " << book->getTitle() << "." << endl; // we reserve it
+	}
+	else if (book->getStatus() == BookStatus::Reserved) // if the book is currently already reserved...
+	{
+		cout << "This book is already reserved." << endl; // we cannot reserve it
+	}
+	else // if the book is freely available...
+	{
+		cout << "This book is currently available, you can borrow it." << endl; // we are pushed to borrow instead
+	}
+}
