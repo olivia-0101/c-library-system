@@ -14,4 +14,14 @@ private: // private methods
 
 public: // public methods
 	LibrarySystem(); // creates and runs the library system
+
+	vector<Book*> searchByTitle(string title); // vector search because a searched title could return more than one book
+	vector<Book*> searchByAuthor(string author); // vector search " "
+	bool checkAvailability(Book* book);
+	void sendAlert();
+	void handleReservations();
+	Book* findBook(string title);
+	bool addBook(Book* book);
+	bool removeBook(Book* book);
+	bool updateBook(Book* book, string newTitle, string newAuthor);
 };
