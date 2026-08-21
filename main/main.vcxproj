@@ -127,7 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Librarian.cpp" />
+    <ClCompile Include="LibraryMember.cpp" />
+    <ClCompile Include="LibrarySystem.cpp" />
+    <ClCompile Include="LibraryUser.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Librarian.h" />
+    <ClInclude Include="LibraryMember.h" />
+    <ClInclude Include="LibrarySystem.h" />
+    <ClInclude Include="LibraryUser.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

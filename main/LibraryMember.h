@@ -18,7 +18,7 @@ public: // public methods
 	void borrowBook(Book* book); // each specific book involves a pointer
 	void returnBook(Book* book);
 	void reserveBook(Book* book);
-	void checkAvailability(Book* book);
+	bool checkAvailability(Book* book);
 
 	void displayUserInfo() override; // overrides the parent class version of this method to allow for the child specific version
 };

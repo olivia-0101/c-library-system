@@ -16,6 +16,6 @@ public: // public methods
 	Librarian(int id, string n, string e, string p, LibrarySystem* system); // when we create a Librarian object we also give them the LibrarySystem system
 
 	bool addBook(Book* book);
-	bool updateBook(Book* book);
+	bool updateBook(Book* book, string newTitle, string newAuthor);
 	bool removeBook(Book* book);
 };

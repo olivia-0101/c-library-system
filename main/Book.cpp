@@ -59,3 +59,9 @@ string Book::getAuthor() // getter that grabs the book's author (private attribu
 {
 	return author;
 }
+
+void Book::updateBookInfo(string newTitle, string newAuthor) // book is responsible for changing its own title and author
+{
+	title = newTitle;
+	author = newAuthor;
+}
