@@ -41,6 +41,8 @@ int main()
 	int choice;
 	cin >> choice; // user can input the number they want the system to execute
 
+	///
+
 	// menu pathways
 	if (choice == 1) // option 1
 	{
@@ -64,6 +66,30 @@ int main()
 			}
 		}
 	}
+
+	if (choice == 2) // option 2
+	{
+		string title; // title variable that will contain the title the user inputs
+
+		cout << "Please enter the title of the book you are looking for: "; // display message
+		cin.ignore();
+		getline(cin, title); // get rid of the leftover enter key, process the user's answer
+
+		vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
+
+		if (results.empty()) // if it cannot find that title
+		{
+			cout << "There is no book available with that title." << endl; // display message for failure
+		}
+		else
+		{
+			for (Book* book : results) // when it finds the specific book
+			{
+				library.checkAvailability(book); // library will check the availability
+			}
+		}
+	}
+
 
 	return 0;
 }
