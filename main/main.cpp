@@ -22,5 +22,15 @@ int main()
 
 	member1.borrowBook(&book2); // testing borrowing
 
+	member1.viewBorrowing(); // testing showing the borrowing details
+
+	member1.returnBook(&book2); // testing returning
+
+	member1.viewBorrowing(); // testing showing the vector and whether the book has gone..
+
+	library.checkAvailability(&book1);
+
+	library.checkAvailability(&book2);
+
 	return 0;
 }
