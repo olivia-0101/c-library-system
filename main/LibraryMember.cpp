@@ -70,3 +70,9 @@ void LibraryMember::reserveBook(Book* book) // method to reserve books
 		cout << "This book is currently available, you can borrow it." << endl; // we are pushed to borrow instead
 	}
 }
+
+void LibraryMember::displayUserInfo() // displaying user info method
+{
+	LibraryUser::displayUserInfo(); // has to call this because the attributes are private
+	cout << "Library Member" << endl;
+}

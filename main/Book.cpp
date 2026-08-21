@@ -17,7 +17,7 @@ void Book::borrow() // borrowing method
 
 void Book::returnBook() // returning method
 {
-	status = return status; // sets the book's status back to 'Available' without directly changing the private status variable
+	status = BookStatus::Available; // sets the book's status back to 'Available' without directly changing the private status variable
 }
 
 void Book::reserve() // reserving books
@@ -25,7 +25,7 @@ void Book::reserve() // reserving books
 	status = BookStatus::Reserved;
 }
 
-void Book::getStatus() // showing the book's status method
+BookStatus Book::getStatus() // showing the book's status method
 {
 	return status; // simply displays it
 }
@@ -34,7 +34,7 @@ void Book::displayBookInfo() // method for displaying a book's info
 {
 	cout << "ID: " << bookId << endl; // attributes will be displayed as per pseudocode
 	cout << "Title: " << title << endl;
-	cout << "Author: " << title << endl;
+	cout << "Author: " << author << endl;
 
 	if (status == BookStatus::Available) // if a book is 'Available'
 	{
