@@ -15,5 +15,7 @@ int main()
 	Book book1(1, "Alice's Adventures in Wonderland", "Lewis Carroll"); // creating a random book according to the book constructor
 	library.addBook(&book1); // addBook wants a pointer to a book, so we give it book1 and the & points to its address; this then gets added to the library
 
+	Book book2(2, "Pride and Prejudice", "Jane Austen");
+	library.addBook(&book2); // adding the second book to see if it works
 	return 0;
 }
