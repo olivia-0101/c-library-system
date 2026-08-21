@@ -13,6 +13,7 @@ int main()
 {
 	LibrarySystem library; // creating the empty library
 	Book book1(1, "Alice's Adventures in Wonderland", "Lewis Carroll"); // creating a random book according to the book constructor
+	library.addBook(&book1); // addBook wants a pointer to a book, so we give it book1 and the & points to its address; this then gets added to the library
 
 	return 0;
 }
