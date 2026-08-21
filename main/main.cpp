@@ -39,10 +39,9 @@ int main()
 	library.removeBook(&book6); // testing removal
 	vector<Book*> removedBookTest = library.searchByTitle("The Bell Jar");
 
-	if (removedBookTest.empty())
-	{
-		cout << "The Bell Jar has been removed." << endl;
-	}
+	library.updateBook(&book2, "Pride and Prejudice: First Edition", "Jane Austen"); // testing updating books
+
+	book2.displayBookInfo();
 
 	return 0;
 }
