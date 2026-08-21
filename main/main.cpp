@@ -11,37 +11,35 @@ using namespace std; // efficiency, removes the need to type in std:: each time
 
 int main()
 {
-	LibrarySystem library; // creating the empty library
-	Book book1(1, "Alice's Adventures in Wonderland", "Lewis Carroll"); // creating a random book according to the book constructor
-	library.addBook(&book1); // addBook wants a pointer to a book, so we give it book1 and the & points to its address; this then gets added to the library
+	LibrarySystem library; // creating the empty library system
 
-	Book book2(2, "Pride and Prejudice", "Jane Austen");
-	library.addBook(&book2); // adding the second book to see if it works
-
+	Book book1(1, "Alice's Adventures in Wonderland", "Lewis Carroll"); // creating book number 1 according to the book constructor
+	Book book2(2, "Pride and Prejudice", "Jane Austen"); // same process as book 1, adding all of the other books below!
 	Book book3(3, "A Christmas Carol", "Charles Dickens");
-	library.addBook(&book3);
-
 	Book book4(4, "King Lear", "William Shakespeare");
-	library.addBook(&book4);
-
 	Book book5(5, "The Picture of Dorian Gray", "Oscar Wilde");
-	library.addBook(&book5);
-
 	Book book6(6, "The Bell Jar", "Sylvia Plath");
+
+	library.addBook(&book1); // addBook wants a pointer to a book, so we give it book1 and the & points to its address; this then gets added to the library
+	library.addBook(&book2); // same process with the rest of the books, adding them to the library
+	library.addBook(&book3);
+	library.addBook(&book4);
+	library.addBook(&book5);
 	library.addBook(&book6);
 
-	LibraryMember member1(1, "Bob", "Bob@gmail.com", "pass"); // testing creating a Library Member
+	LibraryMember member1(1, "Jane", "Jane@gmail.com", "pass"); // creating a Library Member
 
-	member1.borrowBook(&book1); // testing borrowing
-	member1.borrowBook(&book2);
-	member1.borrowBook(&book3);
+	// creating a front page menu with options
+	cout << "Welcome to the library!" << endl;
+	cout << "1. Search for the book you are looking for" << endl;
+	cout << "2. Check the availability of a book" << endl;
+	cout << "3. Borrow a book" << endl;
+	cout << "4. Return a book" << endl;
+	cout << "5. View my borrowed books" << endl;
+	cout << "6. Exit" << endl;
 
-	library.removeBook(&book6); // testing removal
-	vector<Book*> removedBookTest = library.searchByTitle("The Bell Jar");
-
-	library.updateBook(&book2, "Pride and Prejudice: First Edition", "Jane Austen"); // testing updating books
-
-	book2.displayBookInfo();
+	int choice;
+	cin >> choice; // user can input thw number they want the system to execute
 
 	return 0;
 }
