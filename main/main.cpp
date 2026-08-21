@@ -90,6 +90,26 @@ int main()
 		}
 	}
 
+	if (choice == 3) // option 3
+	{
+		string title; // title variable that will contain the title the user inputs
+
+		cout << "Please enter the title of the book you are looking for: "; // display message
+		cin.ignore();
+		getline(cin, title); // get rid of the leftover enter key, process the user's answer
+
+		vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
+
+		if (results.empty()) // if it cannot find that title
+		{
+			cout << "There is no book available with that title." << endl; // display message for failure
+		}
+		else
+		{
+			member1.borrowBook(results[0]); // asks the library for the first book it finds
+		}
+	}
+
 
 	return 0;
 }
