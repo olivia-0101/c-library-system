@@ -17,5 +17,10 @@ int main()
 
 	Book book2(2, "Pride and Prejudice", "Jane Austen");
 	library.addBook(&book2); // adding the second book to see if it works
+
+	LibraryMember member1(1, "Bob", "Bob@gmail.com", "pass"); // testing creating a Library Member
+
+	member1.borrowBook(&book2); // testing borrowing
+
 	return 0;
 }
