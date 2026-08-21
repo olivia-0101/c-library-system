@@ -130,6 +130,15 @@ int main()
 		}
 	}
 
+	if (choice == 5) // option 5 (viewing borrowed books)
+	{
+		member1.viewBorrowing();
+	}
+		
+	if (choice == 6) // option 6 (exit)
+	{
+		cout << "Thank you for using the library. Have a nice day! You may now close the program." << endl;
+	}
 
 	return 0;
 }
