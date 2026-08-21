@@ -35,9 +35,13 @@ int main()
 	member1.borrowBook(&book1); // testing borrowing
 	member1.borrowBook(&book2);
 	member1.borrowBook(&book3);
-	member1.borrowBook(&book4);
-	member1.borrowBook(&book5);
-	member1.borrowBook(&book6); // checking the borrowing limit
+
+	vector<Book*> results = library.searchByTitle("The Bell Jar");
+
+	for (Book* book : results)
+	{
+		book->displayBookInfo();
+	}
 
 	return 0;
 }
