@@ -11,5 +11,8 @@ using namespace std; // efficiency, removes the need to type in std:: each time
 
 int main()
 {
+	LibrarySystem library; // creating the empty library
+	Book book1(1, "Alice's Adventures in Wonderland", "Lewis Carroll"); // creating a random book according to the book constructor
+
 	return 0;
 }
