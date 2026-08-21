@@ -18,17 +18,26 @@ int main()
 	Book book2(2, "Pride and Prejudice", "Jane Austen");
 	library.addBook(&book2); // adding the second book to see if it works
 
+	Book book3(3, "A Christmas Carol", "Charles Dickens");
+	library.addBook(&book3);
+
+	Book book4(4, "King Lear", "William Shakespeare");
+	library.addBook(&book4);
+
+	Book book5(5, "The Picture of Dorian Gray", "Oscar Wilde");
+	library.addBook(&book5);
+
+	Book book6(6, "The Bell Jar", "Sylvia Plath");
+	library.addBook(&book6);
+
 	LibraryMember member1(1, "Bob", "Bob@gmail.com", "pass"); // testing creating a Library Member
 
-	member1.borrowBook(&book2); // testing borrowing
-
-	member1.viewBorrowing(); // testing showing the borrowing details
-
-	member1.returnBook(&book2); // testing returning
-
-	member1.viewBorrowing(); // testing showing the vector and whether the book has gone..
-
-	library.checkAvailability(&book2); // display availability of a certain book
+	member1.borrowBook(&book1); // testing borrowing
+	member1.borrowBook(&book2);
+	member1.borrowBook(&book3);
+	member1.borrowBook(&book4);
+	member1.borrowBook(&book5);
+	member1.borrowBook(&book6); // checking the borrowing limit
 
 	return 0;
 }
