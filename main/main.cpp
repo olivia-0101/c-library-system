@@ -36,12 +36,7 @@ int main()
 	member1.borrowBook(&book2);
 	member1.borrowBook(&book3);
 
-	vector<Book*> authorResults = library.searchByAuthor("Sylvia Plath"); // testing search by title
-
-	for (Book* book : authorResults)
-	{
-		book->displayBookInfo();
-	}
+	library.removeBook(&book6); // testing removal
 
 	return 0;
 }
