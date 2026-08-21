@@ -36,11 +36,21 @@ vector<Book*> LibrarySystem::searchByAuthor(string author) // search by author m
 }
 
 
-bool LibrarySystem::checkAvailability(Book* book) // checking book availability method
+void LibrarySystem::checkAvailability(Book* book) // checking book availability method
 {
-	return book->getStatus() == BookStatus::Available; // if the book is available will return true, if not will return false
+	if (book->getStatus() == BookStatus::Available) // if available
+	{
+		cout << book->getTitle() << " is available." << endl;
+	}
+	else if (book->getStatus() == BookStatus::Borrowed) // if borrowed
+	{
+		cout << book->getTitle() << " is already borrowed." << endl;
+	}
+	else if (book->getStatus() == BookStatus::Reserved) // if reserved
+	{
+		cout << book->getTitle() << " is currently reserved." << endl;
+	}
 }
-
 
 void LibrarySystem::sendAlert() // sending alerts
 {

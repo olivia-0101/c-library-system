@@ -17,7 +17,7 @@ public: // public methods
 
 	vector<Book*> searchByTitle(string title); // vector search because a searched title could return more than one book
 	vector<Book*> searchByAuthor(string author); // vector search " "
-	bool checkAvailability(Book* book);
+	void checkAvailability(Book* book);
 	void sendAlert();
 	void handleReservations();
 	Book* findBook(string title);

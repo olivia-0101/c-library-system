@@ -28,9 +28,7 @@ int main()
 
 	member1.viewBorrowing(); // testing showing the vector and whether the book has gone..
 
-	library.checkAvailability(&book1);
-
-	library.checkAvailability(&book2);
+	library.checkAvailability(&book2); // display availability of a certain book
 
 	return 0;
 }
