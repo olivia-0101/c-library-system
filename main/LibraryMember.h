@@ -19,6 +19,7 @@ public: // public methods
 	void returnBook(Book* book);
 	void reserveBook(Book* book);
 	bool checkAvailability(Book* book);
+	bool hasBorrowedBook(Book* book);
 
 	void displayUserInfo() override; // overrides the parent class version of this method to allow for the child specific version
 };

@@ -28,6 +28,10 @@ int main()
 	library.addBook(&book6);
 
 	LibraryMember member1(1, "Jane", "Jane@gmail.com", "pass"); // creating a Library Member
+	member1.borrowBook(&book1);
+
+	bool test = member1.hasBorrowedBook(&book1);
+	cout << test << endl;
 
 	// front page menu with options
 	cout << "Welcome to the library!" << endl;
@@ -126,9 +130,17 @@ int main()
 		}
 		else
 		{
-			member1.returnBook(results[0]); // asks the member for the first book it finds, to return it
+			if (member1.hasBorrowedBook(results[0])) // asks the member for the first book it finds, to return it
+			{
+				member1.returnBook(results[0]);
+			}
+			else
+			{
+				cout << "You have not borrowed this book." << endl;
+			}
 		}
 	}
+
 
 	if (choice == 5) // option 5 (viewing borrowed books)
 	{

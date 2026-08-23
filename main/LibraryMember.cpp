@@ -86,5 +86,7 @@ bool LibraryMember::hasBorrowedBook(Book* book) // checking what books the libra
 			return true; // confirm they have that book
 		}
 	}
+
 	return false; // otherwise they don't have that book
+
 }
