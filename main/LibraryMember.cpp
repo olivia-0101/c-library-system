@@ -76,3 +76,15 @@ void LibraryMember::displayUserInfo() // displaying user info method
 	LibraryUser::displayUserInfo(); // has to call this because the attributes are private
 	cout << "Library Member" << endl;
 }
+
+bool LibraryMember::hasBorrowedBook(Book* book) // checking what books the library member has borrowed
+{
+	for (Book* borrowedBook : borrowedBooks) // for loop going through all the borrowed books, checks "is this the book we're looking for?"
+	{
+		if (borrowedBook == book) // if it's the book we're looking for...
+		{
+			return true; // confirm they have that book
+		}
+	}
+	return false; // otherwise they don't have that book
+}
