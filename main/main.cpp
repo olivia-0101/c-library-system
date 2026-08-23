@@ -28,10 +28,6 @@ int main()
 	library.addBook(&book6);
 
 	LibraryMember member1(1, "Jane", "Jane@gmail.com", "pass"); // creating a Library Member
-	member1.borrowBook(&book1);
-
-	bool test = member1.hasBorrowedBook(&book1);
-	cout << test << endl;
 
 	// front page menu with options
 	cout << "Welcome to the library!" << endl;
