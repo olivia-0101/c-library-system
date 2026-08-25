@@ -30,229 +30,232 @@ int main()
 	LibraryMember member1(1, "Jane", "Jane@gmail.com", "pass"); // creating a Library Member
 	Librarian librarian(2, "Librarian", "librarian@library.com", "password", &library); // creating a Librarian
 
-	// general welcome page where users can choose their role
-	cout << "Welcome to the Smart Library Management System!" << endl;
-	cout << "Please select the number of your role, or 3 to exit the system:" << endl;
-	cout << "1. Library Member" << endl;
-	cout << "2. Librarian" << endl;
-	cout << "3. Exit" << endl;
-
-	int roleChoice; // variable that allows members to choose which role they are
-	cin >> roleChoice; // allows users to input their role
-
-	// Library Member front page menu with options
-	if (roleChoice == 1) // number 1 means you are a library member, so takes you to that menu
+	while (true)
 	{
-		while (true)
+		// general welcome page where users can choose their role
+		cout << "Welcome to the Smart Library Management System!" << endl;
+		cout << "Please select the number of your role, or 3 to exit the system:" << endl;
+		cout << "1. Library Member" << endl;
+		cout << "2. Librarian" << endl;
+		cout << "3. Exit" << endl;
+
+		int roleChoice; // variable that allows members to choose which role they are
+		cin >> roleChoice; // allows users to input their role
+
+		// Library Member front page menu with options
+		if (roleChoice == 1) // number 1 means you are a library member, so takes you to that menu
 		{
-			cout << "Welcome to the library!" << endl;
-			cout << "1. Search for the book you are looking for" << endl;
-			cout << "2. Check the availability of a book" << endl;
-			cout << "3. Borrow a book" << endl;
-			cout << "4. Return a book" << endl;
-			cout << "5. View my borrowed books" << endl;
-			cout << "6. Exit" << endl;
-
-			int choice;
-			cin >> choice; // user can input the number they want the system to execute
-
-			///
-
-			// menu pathways
-			if (choice == 1) // option 1 (searching)
+			while (true)
 			{
-				string title; // title variable that will contain the title the user inputs
+				cout << "Welcome to the library!" << endl;
+				cout << "1. Search for the book you are looking for" << endl;
+				cout << "2. Check the availability of a book" << endl;
+				cout << "3. Borrow a book" << endl;
+				cout << "4. Return a book" << endl;
+				cout << "5. View my borrowed books" << endl;
+				cout << "6. Exit" << endl;
 
-				cout << "Please enter the title of the book you are looking for: "; // display message
-				cin.ignore();
-				getline(cin, title); // get rid of the leftover enter key, process the user's answer
+				int choice;
+				cin >> choice; // user can input the number they want the system to execute
 
-				vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
+				///
 
-				if (results.empty()) // if it cannot find that title
+				// menu pathways
+				if (choice == 1) // option 1 (searching)
 				{
-					cout << "There is no book available with that title." << endl; // display message for failure
-				}
-				else
-				{
-					for (Book* book : results) // when it finds the specific book
+					string title; // title variable that will contain the title the user inputs
+
+					cout << "Please enter the title of the book you are looking for: "; // display message
+					cin.ignore();
+					getline(cin, title); // get rid of the leftover enter key, process the user's answer
+
+					vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
+
+					if (results.empty()) // if it cannot find that title
 					{
-						book->displayBookInfo(); // will display info about the book
-					}
-				}
-			}
-
-			if (choice == 2) // option 2 (availability checker)
-			{
-				string title; // title variable that will contain the title the user inputs
-
-				cout << "Please enter the title of the book you are looking for: "; // display message
-				cin.ignore();
-				getline(cin, title); // get rid of the leftover enter key, process the user's answer
-
-				vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
-
-				if (results.empty()) // if it cannot find that title
-				{
-					cout << "There is no book available with that title." << endl; // display message for failure
-				}
-				else
-				{
-					for (Book* book : results) // when it finds the specific book
-					{
-						library.checkAvailability(book); // library will check the availability
-					}
-				}
-			}
-
-			if (choice == 3) // option 3 (borrowing)
-			{
-				string title; // title variable that will contain the title the user inputs
-
-				cout << "Please enter the title of the book you are looking for: "; // display message
-				cin.ignore();
-				getline(cin, title); // get rid of the leftover enter key, process the user's answer
-
-				vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
-
-				if (results.empty()) // if it cannot find that title
-				{
-					cout << "There is no book available with that title." << endl; // display message for failure
-				}
-				else
-				{
-					member1.borrowBook(results[0]); // asks the library for the first book it finds, to borrow it
-				}
-			}
-
-			if (choice == 4) // option 4 (returning)
-			{
-				string title; // title variable that will contain the title the user inputs
-
-				cout << "Please enter the title of the book you are looking for: "; // display message
-				cin.ignore();
-				getline(cin, title); // get rid of the leftover enter key, process the user's answer
-
-				vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
-
-				if (results.empty()) // if it cannot find that title
-				{
-					cout << "There is no book available with that title." << endl; // display message for failure
-				}
-				else
-				{
-					if (member1.hasBorrowedBook(results[0])) // asks the member for the first book it finds, to return it
-					{
-						member1.returnBook(results[0]);
+						cout << "There is no book available with that title." << endl; // display message for failure
 					}
 					else
 					{
-						cout << "You have not borrowed this book." << endl;
+						for (Book* book : results) // when it finds the specific book
+						{
+							book->displayBookInfo(); // will display info about the book
+						}
 					}
 				}
+
+				if (choice == 2) // option 2 (availability checker)
+				{
+					string title; // title variable that will contain the title the user inputs
+
+					cout << "Please enter the title of the book you are looking for: "; // display message
+					cin.ignore();
+					getline(cin, title); // get rid of the leftover enter key, process the user's answer
+
+					vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
+
+					if (results.empty()) // if it cannot find that title
+					{
+						cout << "There is no book available with that title." << endl; // display message for failure
+					}
+					else
+					{
+						for (Book* book : results) // when it finds the specific book
+						{
+							library.checkAvailability(book); // library will check the availability
+						}
+					}
+				}
+
+				if (choice == 3) // option 3 (borrowing)
+				{
+					string title; // title variable that will contain the title the user inputs
+
+					cout << "Please enter the title of the book you are looking for: "; // display message
+					cin.ignore();
+					getline(cin, title); // get rid of the leftover enter key, process the user's answer
+
+					vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
+
+					if (results.empty()) // if it cannot find that title
+					{
+						cout << "There is no book available with that title." << endl; // display message for failure
+					}
+					else
+					{
+						member1.borrowBook(results[0]); // asks the library for the first book it finds, to borrow it
+					}
+				}
+
+				if (choice == 4) // option 4 (returning)
+				{
+					string title; // title variable that will contain the title the user inputs
+
+					cout << "Please enter the title of the book you are looking for: "; // display message
+					cin.ignore();
+					getline(cin, title); // get rid of the leftover enter key, process the user's answer
+
+					vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
+
+					if (results.empty()) // if it cannot find that title
+					{
+						cout << "There is no book available with that title." << endl; // display message for failure
+					}
+					else
+					{
+						if (member1.hasBorrowedBook(results[0])) // asks the member for the first book it finds, to return it
+						{
+							member1.returnBook(results[0]);
+						}
+						else
+						{
+							cout << "You have not borrowed this book." << endl;
+						}
+					}
+				}
+
+
+				if (choice == 5) // option 5 (viewing borrowed books)
+				{
+					member1.viewBorrowing();
+				}
+
+				if (choice == 6) // option 6 (exit)
+				{
+					cout << "Thank you for using the library. Have a nice day! You may now close the program." << endl;
+				}
+
 			}
-
-
-			if (choice == 5) // option 5 (viewing borrowed books)
-			{
-				member1.viewBorrowing();
-			}
-
-			if (choice == 6) // option 6 (exit)
-			{
-				cout << "Thank you for using the library. Have a nice day! You may now close the program." << endl;
-			}
-
 		}
-	}
 
-	if (roleChoice == 2) // number 2 means you are a librarian, so takes you to that menu
-	{
-		while (true) // loops the menu
+		if (roleChoice == 2) // number 2 means you are a librarian, so takes you to that menu
 		{
-			cout << "Welcome to the Librarian menu!" << endl;
-			cout << "1. Add a book" << endl;
-			cout << "2. Remove a book" << endl;
-			cout << "3. Update a book" << endl;
-			cout << "4. Exit" << endl;
-
-			int librarianChoice; // variable allowing the Librarian to enter their choice
-			cin >> librarianChoice;
-
-			if (librarianChoice == 1) // if the Librarian chooses 1 (add a book)
+			while (true) // loops the menu
 			{
-				int id;
-				string title;
-				string author; // book attributes
+				cout << "Welcome to the Librarian menu!" << endl;
+				cout << "1. Add a book" << endl;
+				cout << "2. Remove a book" << endl;
+				cout << "3. Update a book" << endl;
+				cout << "4. Exit" << endl;
 
-				cout << "Enter the book ID: ";
-				cin >> id; // enter the ID
+				int librarianChoice; // variable allowing the Librarian to enter their choice
+				cin >> librarianChoice;
 
-				cout << "Enter the title: ";
-				cin.ignore();
-				getline(cin, title); // enter the title
-
-				cout << "Enter the author: ";
-				getline(cin, author); // enter the author
-
-				Book* newBook = new Book(id, title, author); // the specific book is made with a pointer
-
-				librarian.addBook(newBook); // this is added to the librarian's addBook method
-			}
-
-			if (librarianChoice == 2) // if the Librarian chooses 2 (remove a book)
-			{
-				string title; // searching for the book via title
-
-				cout << "Enter the title of the book you wish to remove from the system: "; // asks the user to input a title
-				cin.ignore();
-				getline(cin, title); // input the title
-
-				Book* bookToRemove = library.findBook(title); // finds the specific book from the library
-
-				if (bookToRemove != nullptr) // if it finds the specific book...
+				if (librarianChoice == 1) // if the Librarian chooses 1 (add a book)
 				{
-					librarian.removeBook(bookToRemove); // removes the book from the library
+					int id;
+					string title;
+					string author; // book attributes
+
+					cout << "Enter the book ID: ";
+					cin >> id; // enter the ID
+
+					cout << "Enter the title: ";
+					cin.ignore();
+					getline(cin, title); // enter the title
+
+					cout << "Enter the author: ";
+					getline(cin, author); // enter the author
+
+					Book* newBook = new Book(id, title, author); // the specific book is made with a pointer
+
+					librarian.addBook(newBook); // this is added to the librarian's addBook method
 				}
-				else
+
+				if (librarianChoice == 2) // if the Librarian chooses 2 (remove a book)
 				{
-					cout << "Book could not be found." << endl; // otherwise if it fails, displays this message
+					string title; // searching for the book via title
+
+					cout << "Enter the title of the book you wish to remove from the system: "; // asks the user to input a title
+					cin.ignore();
+					getline(cin, title); // input the title
+
+					Book* bookToRemove = library.findBook(title); // finds the specific book from the library
+
+					if (bookToRemove != nullptr) // if it finds the specific book...
+					{
+						librarian.removeBook(bookToRemove); // removes the book from the library
+					}
+					else
+					{
+						cout << "Book could not be found." << endl; // otherwise if it fails, displays this message
+					}
 				}
-			}
 
-			if (librarianChoice == 3) // if the Librarian chooses 3 (update a book)
-			{
-				string title;
-				string newTitle;
-				string newAuthor; // book attributes
-
-				cout << "Enter the title of the book you want to update: " << endl; // asking for a new title
-				cin.ignore();
-				getline(cin, title); // user input
-
-				Book* bookToUpdate = library.findBook(title); // finding the specific book by title
-
-				if (bookToUpdate != nullptr) // if the specific book is found...
+				if (librarianChoice == 3) // if the Librarian chooses 3 (update a book)
 				{
-					cout << "Enter the updated title: "; // asking for the updated title
-					getline(cin, newTitle);
+					string title;
+					string newTitle;
+					string newAuthor; // book attributes
 
-					cout << "Enter the updated author: "; // asking for the updated author
-					getline(cin, newAuthor);
+					cout << "Enter the title of the book you want to update: " << endl; // asking for a new title
+					cin.ignore();
+					getline(cin, title); // user input
 
-					librarian.updateBook(bookToUpdate, newTitle, newAuthor); // the Librarian updates this book
+					Book* bookToUpdate = library.findBook(title); // finding the specific book by title
+
+					if (bookToUpdate != nullptr) // if the specific book is found...
+					{
+						cout << "Enter the updated title: "; // asking for the updated title
+						getline(cin, newTitle);
+
+						cout << "Enter the updated author: "; // asking for the updated author
+						getline(cin, newAuthor);
+
+						librarian.updateBook(bookToUpdate, newTitle, newAuthor); // the Librarian updates this book
+					}
+					else
+					{
+						cout << "The book you have searched for could not be found." << endl; // failure display message
+					}
 				}
-				else
+
+				if (librarianChoice == 4) // if the Librarian chooses 4 (exit)
 				{
-					cout << "The book you have searched for could not be found." << endl; // failure display message
+					cout << "Returning to role selection!" << endl; // display message
+					break; // stops the loop and returns to the Librarian menu
 				}
-			}
-
-			if (librarianChoice == 4) // if the Librarian chooses 4 (exit)
-			{
-				cout << "Returning to role selection!" << endl; // display message
-				break; // stops the loop
 			}
 		}
 	}
-} 
+}
