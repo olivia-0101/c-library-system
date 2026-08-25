@@ -176,8 +176,29 @@ int main()
 			cout << "3. Update a book" << endl;
 			cout << "4. Exit" << endl;
 
-			int librarianChoice; // variable allowing the librarian to enter their choice
+			int librarianChoice; // variable allowing the Librarian to enter their choice
 			cin >> librarianChoice;
-		}
-	}
-}
+
+			if (librarianChoice == 1) // if the Librarian chooses 1 (add a book)
+			{
+				int id;
+				string title;
+				string author; // book attributes
+
+				cout << "Enter the book ID: ";
+				cin >> id; // enter the ID
+
+				cout << "Enter the title: ";
+				cin.ignore();
+				getline(cin, title); // enter the title
+
+				cout << "Enter the author: ";
+				getline(cin, author); // enter the author
+
+				Book* newBook = new Book(id, title, author); // the specific book is made with a pointer
+
+				librarian.addBook(newBook); // this is added to the librarian's addBook method
+			}
+		} // closes the while true
+	} // closes the if choice
+} // final bracket
