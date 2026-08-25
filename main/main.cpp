@@ -28,8 +28,19 @@ int main()
 	library.addBook(&book6);
 
 	LibraryMember member1(1, "Jane", "Jane@gmail.com", "pass"); // creating a Library Member
+	Librarian librarian(2, "Librarian", "librarian@library.com", "password", &library); // creating a Librarian
 
-	// front page menu with options
+	// general welcome page where users can choose their role
+	cout << "Welcome to the Smart Library Management System!" << endl;
+	cout << "Please select your role:" << endl;
+	cout << "1. Library Member" << endl;
+	cout << "2. Librarian" << endl;
+	cout << "3. Exit" << endl;
+
+	int roleChoice; // variable that allows members to choose which role they are
+	cin >> roleChoice; // allows users to input their role
+
+	// Library Member front page menu with options
 	while (true)
 	{
 		cout << "Welcome to the library!" << endl;
