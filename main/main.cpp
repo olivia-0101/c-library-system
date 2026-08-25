@@ -247,6 +247,12 @@ int main()
 					cout << "The book you have searched for could not be found." << endl; // failure display message
 				}
 			}
+
+			if (librarianChoice == 4) // if the Librarian chooses 4 (exit)
+			{
+				cout << "Returning to role selection!" << endl; // display message
+				break; // stops the loop
+			}
 		}
 	}
 } 
