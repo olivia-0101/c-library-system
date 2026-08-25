@@ -32,7 +32,7 @@ int main()
 
 	// general welcome page where users can choose their role
 	cout << "Welcome to the Smart Library Management System!" << endl;
-	cout << "Please select the number of your role, or number 3 to exit tbe system:" << endl;
+	cout << "Please select the number of your role, or 3 to exit the system:" << endl;
 	cout << "1. Library Member" << endl;
 	cout << "2. Librarian" << endl;
 	cout << "3. Exit" << endl;
@@ -41,136 +41,143 @@ int main()
 	cin >> roleChoice; // allows users to input their role
 
 	// Library Member front page menu with options
-	if (roleChoice == 1)
+	if (roleChoice == 1) // number 1 means you are a library member, so takes you to that menu
 	{
-	while (true)
-	{
-		cout << "Welcome to the library!" << endl;
-		cout << "1. Search for the book you are looking for" << endl;
-		cout << "2. Check the availability of a book" << endl;
-		cout << "3. Borrow a book" << endl;
-		cout << "4. Return a book" << endl;
-		cout << "5. View my borrowed books" << endl;
-		cout << "6. Exit" << endl;
-
-		int choice;
-		cin >> choice; // user can input the number they want the system to execute
-
-		///
-
-		// menu pathways
-		if (choice == 1) // option 1 (searching)
+		while (true)
 		{
-			string title; // title variable that will contain the title the user inputs
+			cout << "Welcome to the library!" << endl;
+			cout << "1. Search for the book you are looking for" << endl;
+			cout << "2. Check the availability of a book" << endl;
+			cout << "3. Borrow a book" << endl;
+			cout << "4. Return a book" << endl;
+			cout << "5. View my borrowed books" << endl;
+			cout << "6. Exit" << endl;
 
-			cout << "Please enter the title of the book you are looking for: "; // display message
-			cin.ignore();
-			getline(cin, title); // get rid of the leftover enter key, process the user's answer
+			int choice;
+			cin >> choice; // user can input the number they want the system to execute
 
-			vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
+			///
 
-			if (results.empty()) // if it cannot find that title
+			// menu pathways
+			if (choice == 1) // option 1 (searching)
 			{
-				cout << "There is no book available with that title." << endl; // display message for failure
-			}
-			else
-			{
-				for (Book* book : results) // when it finds the specific book
+				string title; // title variable that will contain the title the user inputs
+
+				cout << "Please enter the title of the book you are looking for: "; // display message
+				cin.ignore();
+				getline(cin, title); // get rid of the leftover enter key, process the user's answer
+
+				vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
+
+				if (results.empty()) // if it cannot find that title
 				{
-					book->displayBookInfo(); // will display info about the book
-				}
-			}
-		}
-
-		if (choice == 2) // option 2 (availability checker)
-		{
-			string title; // title variable that will contain the title the user inputs
-
-			cout << "Please enter the title of the book you are looking for: "; // display message
-			cin.ignore();
-			getline(cin, title); // get rid of the leftover enter key, process the user's answer
-
-			vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
-
-			if (results.empty()) // if it cannot find that title
-			{
-				cout << "There is no book available with that title." << endl; // display message for failure
-			}
-			else
-			{
-				for (Book* book : results) // when it finds the specific book
-				{
-					library.checkAvailability(book); // library will check the availability
-				}
-			}
-		}
-
-		if (choice == 3) // option 3 (borrowing)
-		{
-			string title; // title variable that will contain the title the user inputs
-
-			cout << "Please enter the title of the book you are looking for: "; // display message
-			cin.ignore();
-			getline(cin, title); // get rid of the leftover enter key, process the user's answer
-
-			vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
-
-			if (results.empty()) // if it cannot find that title
-			{
-				cout << "There is no book available with that title." << endl; // display message for failure
-			}
-			else
-			{
-				member1.borrowBook(results[0]); // asks the library for the first book it finds, to borrow it
-			}
-		}
-
-		if (choice == 4) // option 4 (returning)
-		{
-			string title; // title variable that will contain the title the user inputs
-
-			cout << "Please enter the title of the book you are looking for: "; // display message
-			cin.ignore();
-			getline(cin, title); // get rid of the leftover enter key, process the user's answer
-
-			vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
-
-			if (results.empty()) // if it cannot find that title
-			{
-				cout << "There is no book available with that title." << endl; // display message for failure
-			}
-			else
-			{
-				if (member1.hasBorrowedBook(results[0])) // asks the member for the first book it finds, to return it
-				{
-					member1.returnBook(results[0]);
+					cout << "There is no book available with that title." << endl; // display message for failure
 				}
 				else
 				{
-					cout << "You have not borrowed this book." << endl;
+					for (Book* book : results) // when it finds the specific book
+					{
+						book->displayBookInfo(); // will display info about the book
+					}
 				}
 			}
+
+			if (choice == 2) // option 2 (availability checker)
+			{
+				string title; // title variable that will contain the title the user inputs
+
+				cout << "Please enter the title of the book you are looking for: "; // display message
+				cin.ignore();
+				getline(cin, title); // get rid of the leftover enter key, process the user's answer
+
+				vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
+
+				if (results.empty()) // if it cannot find that title
+				{
+					cout << "There is no book available with that title." << endl; // display message for failure
+				}
+				else
+				{
+					for (Book* book : results) // when it finds the specific book
+					{
+						library.checkAvailability(book); // library will check the availability
+					}
+				}
+			}
+
+			if (choice == 3) // option 3 (borrowing)
+			{
+				string title; // title variable that will contain the title the user inputs
+
+				cout << "Please enter the title of the book you are looking for: "; // display message
+				cin.ignore();
+				getline(cin, title); // get rid of the leftover enter key, process the user's answer
+
+				vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
+
+				if (results.empty()) // if it cannot find that title
+				{
+					cout << "There is no book available with that title." << endl; // display message for failure
+				}
+				else
+				{
+					member1.borrowBook(results[0]); // asks the library for the first book it finds, to borrow it
+				}
+			}
+
+			if (choice == 4) // option 4 (returning)
+			{
+				string title; // title variable that will contain the title the user inputs
+
+				cout << "Please enter the title of the book you are looking for: "; // display message
+				cin.ignore();
+				getline(cin, title); // get rid of the leftover enter key, process the user's answer
+
+				vector<Book*> results = library.searchByTitle(title); // system will search through all books in the library by title
+
+				if (results.empty()) // if it cannot find that title
+				{
+					cout << "There is no book available with that title." << endl; // display message for failure
+				}
+				else
+				{
+					if (member1.hasBorrowedBook(results[0])) // asks the member for the first book it finds, to return it
+					{
+						member1.returnBook(results[0]);
+					}
+					else
+					{
+						cout << "You have not borrowed this book." << endl;
+					}
+				}
+			}
+
+
+			if (choice == 5) // option 5 (viewing borrowed books)
+			{
+				member1.viewBorrowing();
+			}
+
+			if (choice == 6) // option 6 (exit)
+			{
+				cout << "Thank you for using the library. Have a nice day! You may now close the program." << endl;
+			}
+
 		}
+	}
 
-
-		if (choice == 5) // option 5 (viewing borrowed books)
+	if (roleChoice == 2) // number 2 means you are a librarian, so takes you to that menu
+	{
+		while (true) // loops the menu
 		{
-			member1.viewBorrowing();
-		}
+			cout << "Welcome to the Librarian menu!" << endl;
+			cout << "1. Add a book" << endl;
+			cout << "2. Remove a book" << endl;
+			cout << "3. Update a book" << endl;
+			cout << "4. Exit" << endl;
 
-		if (choice == 6) // option 6 (exit)
-		{
-			cout << "Thank you for using the library. Have a nice day! You may now close the program." << endl;
+			int librarianChoice; // variable allowing the librarian to enter their choice
+			cin >> librarianChoice;
 		}
-
 	}
 }
-
-	if (roleChoice == 2)
-	{
-		cout << "Welcome to the Librarian menu!" << endl;
-		cout << "1. Add a book" << endl;
-		cout << "2. Remove a book" << endl;
-		cout << "3. Update a book" << endl;
-		cout << "4. Exit" << endl;
-	}
