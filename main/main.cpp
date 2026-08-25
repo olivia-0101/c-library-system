@@ -162,7 +162,8 @@ int main()
 
 				if (choice == 6) // option 6 (exit)
 				{
-					cout << "Thank you for using the library. Have a nice day! You may now close the program." << endl;
+					cout << "Returning to role selection!" << endl; // display message
+					break; // stops the loop and returns to the Librarian menu
 				}
 
 			}
@@ -256,6 +257,12 @@ int main()
 					break; // stops the loop and returns to the Librarian menu
 				}
 			}
+		}
+
+		if (roleChoice == 3) // number 3 exits the entire system
+		{
+			cout << "Thank you for using the library; have a nice day! This program will now close." << endl;
+			break;
 		}
 	}
 }
