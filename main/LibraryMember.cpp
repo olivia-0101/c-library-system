@@ -33,7 +33,11 @@ void LibraryMember::borrowBook(Book* book) // method for borrowing books
 	{
 		book->borrow(); // that specific book at the pointer will be borrowed
 		borrowedBooks.push_back(book); // adds the book on the end of the vector of borrowedBooks
+
+		book->setDueDate("14 days from borrowing."); // displaying how long to borrow for
+
 		cout << "You have successfully borrowed " << book->getTitle() << "." << endl; // getTitle method allows us to display the specific title of the book the user has borrowed
+		cout << "Due date: 14 days from borrowing." << endl; // display message about when to return
 	}
 
 	else
@@ -45,6 +49,7 @@ void LibraryMember::borrowBook(Book* book) // method for borrowing books
 void LibraryMember::returnBook(Book* book) // method for returning books
 {
 	book->returnBook(); // asking the book to change its status back to 'Available'
+	book->setDueDate(""); // erases the due date
 
 	borrowedBooks.erase( // removing the book from the user's vector list
 		remove(borrowedBooks.begin(), borrowedBooks.end(), book),
