@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Book.h"
+#include "LibraryMember.h"
 
 using namespace std;
 
@@ -33,5 +34,35 @@ void testBookReturn() // book returning test - used in main.cpp
 	else
 	{
 		cout << "TEST FAILED: book was not successfully returned." << endl; // failure message
+	}
+}
+
+void testBorrowingLimit() // testing the borrowing limit of 5 books maximum
+{
+	LibraryMember testMember(001, "Test", "test@gmail.com", "pass"); // creating a placeholder library member
+
+	Book book1(1, "Book1", "Author");
+	Book book2(2, "Book2", "Author");
+	Book book3(3, "Book3", "Author");
+	Book book4(4, "Book4", "Author");
+	Book book5(5, "Book5", "Author");
+	Book book6(6, "Book6", "Author"); // all 6 placeholder books
+
+	testMember.borrowBook(&book1);
+	testMember.borrowBook(&book2);
+	testMember.borrowBook(&book3);
+	testMember.borrowBook(&book4);
+	testMember.borrowBook(&book5); // borrowing 5 books
+
+	Book* sixthBook = &book6;
+	testMember.borrowBook(sixthBook); // the 6th book borrow
+
+	if (book6.getStatus() == BookStatus::Available) // if book stays available...
+	{
+		cout << "TEST PASSED: the borrowing limit is 5, so the 6th book is rejected." << endl; // success message
+	}
+	else
+	{
+		cout << "TEST FAILED: limit was not reinforced, member borrowed a 6th book." << endl; // failure message
 	}
 }
