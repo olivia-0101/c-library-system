@@ -32,7 +32,7 @@ int main()
 
 	// general welcome page where users can choose their role
 	cout << "Welcome to the Smart Library Management System!" << endl;
-	cout << "Please select your role:" << endl;
+	cout << "Please select the number of your role, or number 3 to exit tbe system:" << endl;
 	cout << "1. Library Member" << endl;
 	cout << "2. Librarian" << endl;
 	cout << "3. Exit" << endl;
@@ -41,6 +41,8 @@ int main()
 	cin >> roleChoice; // allows users to input their role
 
 	// Library Member front page menu with options
+	if (roleChoice == 1)
+	{
 	while (true)
 	{
 		cout << "Welcome to the library!" << endl;
@@ -162,6 +164,13 @@ int main()
 		}
 
 	}
-
-	return 0;
 }
+
+	if (roleChoice == 2)
+	{
+		cout << "Welcome to the Librarian menu!" << endl;
+		cout << "1. Add a book" << endl;
+		cout << "2. Remove a book" << endl;
+		cout << "3. Update a book" << endl;
+		cout << "4. Exit" << endl;
+	}
