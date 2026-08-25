@@ -30,5 +30,6 @@ public: // all of its public methods according to the pseudocode
 	string getTitle();
 	string getAuthor();
 	void updateBookInfo(string newTitle, string newAuthor);
+	void setDueDate(string date);
 
 };

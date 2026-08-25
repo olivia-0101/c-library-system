@@ -65,3 +65,8 @@ void Book::updateBookInfo(string newTitle, string newAuthor) // book is responsi
 	title = newTitle;
 	author = newAuthor;
 }
+
+void Book::setDueDate(string date)
+{
+	dueDate = date;
+}
