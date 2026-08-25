@@ -200,7 +200,7 @@ int main()
 				librarian.addBook(newBook); // this is added to the librarian's addBook method
 			}
 
-			if (librarianChoice == 2) // if the librarian chooses 2 (remove a book)
+			if (librarianChoice == 2) // if the Librarian chooses 2 (remove a book)
 			{
 				string title; // searching for the book via title
 
@@ -218,6 +218,36 @@ int main()
 				{
 					cout << "Book could not be found." << endl; // otherwise if it fails, displays this message
 				}
+
+			if (librarianChoice == 3) // if the Librarian chooses 3 (update a book)
+			{
+				string Title;
+				string newTitle;
+				string newAuthor; // book attributes
+
+				cout << "Enter the title of the book you want to update: " << endl; // asking for a new title
+				cin.ignore();
+				getline(cin, title); // user input
+
+				Book* bookToUpdate = library.findBook(title); // finding the specific book by title
+
+				if (bookToUpdate != nullptr) // if the specific book is found...
+				{
+					cout << "Enter the updated title: "; // asking for the updated title
+					getline(cin, newTitle);
+
+					cout << "Enter the updated author: "; // asking for the updated author
+					getline(cin, newAuthor);
+
+					librarian.updateBook(bookToUpdate, newTitle, newAuthor); // the Librarian updates this book
+				}
+				else
+				{
+					cout << "The book you have searched for could not be found." << endl; // failure display message
+				}
+
+			}
+
 			}
 		} // closes the while true
 	} // closes the if choice
