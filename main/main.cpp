@@ -199,6 +199,26 @@ int main()
 
 				librarian.addBook(newBook); // this is added to the librarian's addBook method
 			}
+
+			if (librarianChoice == 2) // if the librarian chooses 2 (remove a book)
+			{
+				string title; // searching for the book via title
+
+				cout << "Enter the title of the book you wish to remove from the system: "; // asks the user to input a title
+				cin.ignore();
+				getline(cin, title); // input the title
+
+				Book* bookToRemove = library.findBook(title); // finds the specific book from the library
+
+				if (bookToRemove != nullptr) // if it finds the specific book...
+				{
+					librarian.removeBook(bookToRemove); // removes the book from the library
+				}
+				else
+				{
+					cout << "Book could not be found." << endl; // otherwise if it fails, displays this message
+				}
+			}
 		} // closes the while true
 	} // closes the if choice
 } // final bracket
