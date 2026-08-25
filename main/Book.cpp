@@ -35,6 +35,7 @@ void Book::displayBookInfo() // method for displaying a book's info
 	cout << "ID: " << bookId << endl; // attributes will be displayed as per pseudocode
 	cout << "Title: " << title << endl;
 	cout << "Author: " << author << endl;
+	cout << "Due date: " << dueDate << endl;
 
 	if (status == BookStatus::Available) // if a book is 'Available'
 	{
