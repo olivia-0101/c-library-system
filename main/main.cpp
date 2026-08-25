@@ -218,10 +218,11 @@ int main()
 				{
 					cout << "Book could not be found." << endl; // otherwise if it fails, displays this message
 				}
+			}
 
 			if (librarianChoice == 3) // if the Librarian chooses 3 (update a book)
 			{
-				string Title;
+				string title;
 				string newTitle;
 				string newAuthor; // book attributes
 
@@ -245,10 +246,7 @@ int main()
 				{
 					cout << "The book you have searched for could not be found." << endl; // failure display message
 				}
-
 			}
-
-			}
-		} // closes the while true
-	} // closes the if choice
-} // final bracket
+		}
+	}
+} 
