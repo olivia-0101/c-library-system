@@ -20,11 +20,6 @@ void Book::returnBook() // returning method
 	status = BookStatus::Available; // sets the book's status back to 'Available' without directly changing the private status variable
 }
 
-void Book::reserve() // reserving books
-{
-	status = BookStatus::Reserved;
-}
-
 BookStatus Book::getStatus() // showing the book's status method
 {
 	return status; // simply displays it
@@ -40,10 +35,6 @@ void Book::displayBookInfo() // method for displaying a book's info
 	if (status == BookStatus::Available) // if a book is 'Available'
 	{
 		cout << "Status: Available" << endl;
-	}
-	else if (status == BookStatus::Reserved) // if a book is 'Reserved'
-	{
-		cout << "Status: Reserved" << endl;
 	}
 	else if (status == BookStatus::Borrowed) // if a book is 'Borrowed'
 	{

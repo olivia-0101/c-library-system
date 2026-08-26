@@ -17,7 +17,6 @@ public: // public methods
 	void viewBorrowing();
 	void borrowBook(Book* book); // each specific book involves a pointer
 	void returnBook(Book* book);
-	void reserveBook(Book* book);
 	bool checkAvailability(Book* book);
 	bool hasBorrowedBook(Book* book);
 

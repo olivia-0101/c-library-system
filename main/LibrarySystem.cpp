@@ -46,21 +46,6 @@ void LibrarySystem::checkAvailability(Book* book) // checking book availability 
 	{
 		cout << book->getTitle() << " is already borrowed." << endl;
 	}
-	else if (book->getStatus() == BookStatus::Reserved) // if reserved
-	{
-		cout << book->getTitle() << " is currently reserved." << endl;
-	}
-}
-
-void LibrarySystem::sendAlert() // sending alerts
-{
-	cout << "Library system alert." << endl; // *****haven't figured out how I want the alerts to appear on the system yet, will return to this!
-}
-
-
-void LibrarySystem::handleReservations() // handling reservations
-{
-	cout << "Library reservations handled." << endl; // *****haven't figured out how I want the alerts to appear on the system yet, will return to this!
 }
 
 
