@@ -87,3 +87,24 @@ void testLibrarianAddBook() // testing the Librarian adding a book to the system
 		cout << "TEST FAILED: Librarian has not added a book." << endl; // failure message
 	}
 }
+
+void testLibrarianRemoveBook() // testing teh Librarian removing books from the system
+{
+	LibrarySystem testLibrary; // creating a test library
+	Librarian testLibrarian(103, "Test Librarian", "librarian@gmail.com", "pass", &testLibrary); // creating a placeholder Librarian
+
+	Book* testBook = new Book(200, "Test Remove Book", "Test Remove Author"); // new test book
+
+	testLibrarian.addBook(testBook); // adding the book to later remove
+
+	bool result = testLibrarian.removeBook(testBook); // Librarian removes the test book from the test library
+
+	if (result == true) // if it works...
+	{
+		cout << "TEST PASSED: Librarian has removed a book." << endl; // success message
+	}
+	else
+	{
+		cout << "TEST FAILED: Librarian has not removed a book." << endl; // failure message
+	}
+}

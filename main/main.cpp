@@ -13,6 +13,7 @@ void testBookBorrow(); // book borrwoing test
 void testBookReturn(); // book returning test
 void testBorrowingLimit(); // 5 book borrowing limit test
 void testLibrarianAddBook(); // librarian adding a new book to the system test
+void testLibrarianRemoveBook(); // librarian removing a new book from the system test
 
 int main()
 {
@@ -20,6 +21,7 @@ int main()
 	testBookReturn();
 	testBorrowingLimit();
 	testLibrarianAddBook();
+	testLibrarianRemoveBook();
 	LibrarySystem library; // creating the empty library system
 
 	Book book1(1, "Alice's Adventures in Wonderland", "Lewis Carroll"); // creating book number 1 according to the book constructor
