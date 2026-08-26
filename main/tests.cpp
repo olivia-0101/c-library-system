@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Book.h"
 #include "LibraryMember.h"
+#include "Librarian.h"
+#include "LibrarySystem.h"
 
 using namespace std;
 
@@ -64,5 +66,24 @@ void testBorrowingLimit() // testing the borrowing limit of 5 books maximum
 	else
 	{
 		cout << "TEST FAILED: limit was not reinforced, member borrowed a 6th book." << endl; // failure message
+	}
+}
+
+void testLibrarianAddBook() // testing the Librarian adding a book to the system
+{
+	LibrarySystem testLibrary; // creating a test library
+	Librarian testLibrarian(102, "Test Librarian", "librarian@gmail.com", "pass", &testLibrary); // creating a placeholder Librarian
+
+	Book* newBook = new Book(100, "Test Added Book", "Test Added Author"); // new test book
+
+	bool result = testLibrarian.addBook(newBook); // Librarian adds the test book to the test library
+
+	if (result == true) // if it works...
+	{
+		cout << "TEST PASSED: Librarian has added a book." << endl; // success message
+	}
+	else
+	{
+		cout << "TEST FAILED: Librarian has not added a book." << endl; // failure message
 	}
 }
