@@ -11,13 +11,15 @@ using namespace std; // efficiency, removes the need to type in std:: each time
 
 void testBookBorrow(); // book borrwoing test
 void testBookReturn(); // book returning test
-void testBorrowingLimit();
+void testBorrowingLimit(); // 5 book borrowing limit test
+void testLibrarianAddBook(); // librarian adding a new book to the system test
 
 int main()
 {
 	testBookBorrow();
 	testBookReturn();
 	testBorrowingLimit();
+	testLibrarianAddBook();
 	LibrarySystem library; // creating the empty library system
 
 	Book book1(1, "Alice's Adventures in Wonderland", "Lewis Carroll"); // creating book number 1 according to the book constructor
