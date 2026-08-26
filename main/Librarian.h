@@ -15,7 +15,10 @@ private:
 public: // public methods
 	Librarian(int id, string n, string e, string p, LibrarySystem* system); // when we create a Librarian object we also give them the LibrarySystem system
 
-	bool addBook(Book* book);
-	bool updateBook(Book* book, string newTitle, string newAuthor);
-	bool removeBook(Book* book);
+	void displayUserInfo() override; // allowing the Librarian to display user info
+
+	bool addBook(Book* book); // ability to add books to the system
+	bool updateBook(Book* book, string newTitle, string newAuthor); // ability to update books
+	bool removeBook(Book* book); // ability to remove books
+
 };

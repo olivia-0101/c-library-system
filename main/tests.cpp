@@ -108,3 +108,11 @@ void testLibrarianRemoveBook() // testing the Librarian removing books from the 
 		cout << "TEST FAILED: Librarian has not removed a book." << endl; // failure message
 	}
 }
+
+void testPolymorphism()
+{
+	LibraryMember member(987, "Test Member", "member@test.com", "pass"); // attributes
+
+	LibraryUser* user = &member; // creates a pointer whose type is LibraryUser but puts it in a library member
+	user->displayUserInfo(); // displaying user info
+}
