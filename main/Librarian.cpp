@@ -23,3 +23,9 @@ bool Librarian::updateBook(Book* book, string newTitle, string newAuthor) // upd
 {
 	return librarySystem->updateBook(book, newTitle, newAuthor); // the Librarian basically requests the code inside the updateBook method, which is in the LibrarySystem class, and whatever answer of true or false they get, it executes it
 }
+
+void Librarian::displayUserInfo() // displaying user info method
+{
+	LibraryUser::displayUserInfo(); // has to call this because the attributes are private, polymorphism
+	cout << "Librarian" << endl;
+}

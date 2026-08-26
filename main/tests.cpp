@@ -88,7 +88,7 @@ void testLibrarianAddBook() // testing the Librarian adding a book to the system
 	}
 }
 
-void testLibrarianRemoveBook() // testing teh Librarian removing books from the system
+void testLibrarianRemoveBook() // testing the Librarian removing books from the system
 {
 	LibrarySystem testLibrary; // creating a test library
 	Librarian testLibrarian(103, "Test Librarian", "librarian@gmail.com", "pass", &testLibrary); // creating a placeholder Librarian
